@@ -1,4 +1,5 @@
-﻿using Cajero.Models;
+﻿using Cajero.Interfaces;
+using Cajero.Models;
 using Cajero.Models.DTO;
 using System;
 using System.Collections.Generic;
@@ -14,20 +15,13 @@ namespace Cajero.Repository
 
         public void guardar(Producto producto)
         {
-            Producto newItem = new Producto();
-            newItem = producto;
-
-            newItem.subtotal =
-                newItem.tea && newItem.cantidad > 1 ?
-                    (newItem.cantidad - 1) * newItem.precio :
-                newItem.fresa && newItem.cantidad >= 3 ?
-                        newItem.cantidad * newItem.precio - Convert.ToDecimal(4.5) :
-                newItem.cafe && newItem.cantidad >= 3 ?
-                     Math.Round(newItem.cantidad * (newItem.precio - newItem.precio * 2 / 3), 2) :
-                newItem.cantidad * newItem.precio;
-
-
-            productoDto.ProductoList.Add(newItem);
+            ICalcularDescuento calcular = null;
+            if (producto.tea) calcular = new CalcularDescuentoTe();
+            if (producto.fresa) calcular = new CalcularDescuentoFresa();
+            if (producto.cafe) calcular = new CalcularDescuentoCafe();
+            producto.subtotal = calcular.CalcularDescuento(producto);
+            
+            productoDto.ProductoList.Add(producto);
         }
     }
 }
