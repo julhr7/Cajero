@@ -1,0 +1,51 @@
+﻿@model Cajero.Models.Producto;
+
+@{
+    ViewData["Title"] = "Ingresar producto";
+}
+
+<div class="panel paneñ-success">
+    <div class="panel-heading text-center"><h4>Ingresar producto</h4></div>
+    <div class="panel-body">
+        <form class="p-a-1" asp-action="ProductoAdd" method="post">
+            <div asp-validation-summary="All"></div>
+            <div class="form-group">
+                <label asp-for="codigo">Código:</label>
+                <input class="form-control" asp-for="codigo" />
+            </div>
+            <div class="form-group">
+                <label asp-for="producto">Producto:</label>
+                <input class="form-control" asp-for="producto" />
+            </div>
+            <div class="form-group">
+                <label asp-for="precio">Precio:</label>
+                <input class="form-control" asp-for="precio" />
+            </div>
+            <div class="form-group">
+                <label asp-for="cantidad">Cantidad:</label>
+                <input class="form-control" asp-for="cantidad" />
+            </div>
+            <div class="d-flex flex-row">
+                <div class="form-group mx-3">
+                    <label asp-for="tea">Green tea</label>
+                    <input type="checkbox" asp-for="tea" />
+                </div>
+                <div class="form-group mx-3">
+                    <label asp-for="fresa">Strawberries</label>
+                    <input type="checkbox" asp-for="fresa" />
+                </div>
+                <div class="form-group mx-3">
+                    <label asp-for="cafe">Coffee</label>
+                    <input type="checkbox" asp-for="cafe" />
+                </div>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-primary" type="submit">
+                    Guardar
+                </button>
+                <a class="btn btn-danger" asp-action="Index">Cancelar</a>
+            </div>
+        </form>
+    </div>    
+</div>
+

@@ -1,0 +1,37 @@
+﻿@model Cajero.Models.DTO.ProductoDto;
+
+@{
+    ViewData["Title"] = "Lista de productos";
+}
+
+<div class="panel-body">
+    <h2>Lista de productos</h2>
+    <a class="btn btn-primary my-2" asp-action="ProductoAdd">Agregar producto</a>
+    <table class="table table-sm table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var r in Model.ProductoList)
+            {
+                <tr>
+                    <td>@r.codigo</td>
+                    <td>@r.producto</td>
+                    <td class="text-right" >@r.precio</td>
+                    <td class="text-right">@r.cantidad</td>
+                    <td class="text-right">@r.subtotal</td>
+                </tr>
+            }
+            <tr>
+                <td colspan="4" class="font-weight-bold" >Total</td>
+                <td class="text-right" >@Html.DisplayFor(Model => Model.total)</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
