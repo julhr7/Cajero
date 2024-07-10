@@ -17,7 +17,6 @@ namespace WebApplication1.Controllers
 
         public ViewResult Index()
         {
-            //return View("ProductoList", ProductoRepository.responsesDto);
             return View("ProductoList", _productoRepository.Producto);
         }
 
@@ -33,7 +32,6 @@ namespace WebApplication1.Controllers
             if (ModelState.IsValid)
             {
                 _productoRepository.guardar(productoResponse);
-                //return View("ProductoList", _productoRepository.Lista);
                 return View("ProductoList", _productoRepository.Producto);
             } else
             {

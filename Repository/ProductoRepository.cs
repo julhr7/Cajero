@@ -10,39 +10,6 @@ namespace Cajero.Repository
     {
         public static ProductoDto productoDto = new ProductoDto();
 
-        
-
-        //public static IEnumerable<Producto> Responses
-        //{
-        //    get
-        //    {
-        //        return responsesDto.ProductoList;
-        //    }
-        //}
-        //public static void AddResponse(Producto response)
-        //{
-        //    Producto newItem = new Producto();
-        //    newItem = response;
-
-        //    response.subtotal =
-        //        response.tea && response.cantidad > 1 ?
-        //            (response.cantidad - 1) * response.precio :
-        //        response.fresa && response.cantidad >= 3 ?
-        //                response.cantidad * response.precio - Convert.ToDecimal(4.5) :
-        //        response.cafe && response.cantidad >= 3 ?
-        //             Math.Round(response.cantidad * (response.precio - response.precio * 2 / 3), 2) :
-        //        response.cantidad * response.precio;
-
-
-        //    responsesDto.ProductoList.Add(newItem);
-        //}
-
-        //public IEnumerable<Producto> Lista()
-        //{
-        //    return productoDto.ProductoList();
-        //}
-        //IEnumerable<Producto> IProductoRepository.Lista => throw new NotImplementedException();
-        IEnumerable<Producto> IProductoRepository.Lista => productoDto.ProductoList;
         ProductoDto IProductoRepository.Producto => productoDto;
 
         public void guardar(Producto producto)

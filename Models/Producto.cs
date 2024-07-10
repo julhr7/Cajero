@@ -26,15 +26,4 @@ namespace Cajero.Models
         public bool fresa { get; set; }
         public bool cafe { get; set; }
     }
-
-    //public class ProductoDto {
-    //    public List<ProductoResponse> ProductoList { get; set; }
-    //    public decimal? total {
-    //        get { return ProductoList.Sum(x => x.subtotal); }
-    //    }
-
-    //    public ProductoDto() {
-    //        this.ProductoList = new List<ProductoResponse>();
-    //    }
-    //}
 }
