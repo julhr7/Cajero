@@ -1,14 +1,12 @@
-﻿using Cajero.Interfaces;
-
-namespace Cajero.Models
+﻿namespace Cajero.Models
 {
-    public class CalcularDescuentoTe : ICalcularDescuento
+    public class CalcularDescuentoTe : CalcularDescuento
     {
-        public decimal CalcularDescuento(Producto producto)
+        public override void Calcular(Producto producto)
         {
-            return producto.cantidad > 1 ?
-                    (producto.cantidad - 1) * producto.precio: 
-                    producto.cantidad * producto.precio; ;
+            producto.subtotal =  producto.cantidad > 1 ?
+                    (producto.cantidad - 1) * producto.precio :
+                    producto.cantidad * producto.precio;
         }
     }
 }

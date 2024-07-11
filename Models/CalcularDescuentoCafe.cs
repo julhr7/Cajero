@@ -1,13 +1,12 @@
-﻿using Cajero.Interfaces;
-using System;
+﻿using System;
 
 namespace Cajero.Models
 {
-    public class CalcularDescuentoCafe : ICalcularDescuento
+    public class CalcularDescuentoCafe : CalcularDescuento
     {
-        public decimal CalcularDescuento(Producto producto)
+        public override void Calcular(Producto producto)
         {
-            return producto.cantidad >= 3 ?
+            producto.subtotal = producto.cantidad >= 3 ?
                 Math.Round(producto.cantidad * (producto.precio - producto.precio * 2 / 3), 2) :
                 producto.cantidad * producto.precio;
         }

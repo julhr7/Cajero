@@ -27,11 +27,11 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
-        public ViewResult ProductoAdd(Producto productoResponse)
+        public ViewResult ProductoAdd(Producto productoRequest)
         {
             if (ModelState.IsValid)
             {
-                _productoRepository.guardar(productoResponse);
+                _productoRepository.guardar(productoRequest);
                 return View("ProductoList", _productoRepository.Producto);
             } else
             {

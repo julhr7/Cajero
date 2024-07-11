@@ -1,9 +1,6 @@
-﻿using Cajero.Interfaces;
-using Cajero.Models;
+﻿using Cajero.Models;
 using Cajero.Models.DTO;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Cajero.Repository
 {
@@ -15,12 +12,9 @@ namespace Cajero.Repository
 
         public void guardar(Producto producto)
         {
-            ICalcularDescuento calcular = null;
-            if (producto.tea) calcular = new CalcularDescuentoTe();
-            if (producto.fresa) calcular = new CalcularDescuentoFresa();
-            if (producto.cafe) calcular = new CalcularDescuentoCafe();
-            producto.subtotal = calcular.CalcularDescuento(producto);
-            
+            var factory = new CalcularFactory();
+            var calular = factory.create(producto);
+            calular.Calcular(producto);
             productoDto.ProductoList.Add(producto);
         }
     }

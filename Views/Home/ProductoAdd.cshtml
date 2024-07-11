@@ -25,19 +25,14 @@
                 <label asp-for="cantidad">Cantidad:</label>
                 <input class="form-control" asp-for="cantidad" />
             </div>
-            <div class="d-flex flex-row">
-                <div class="form-group mx-3">
-                    <label asp-for="tea">Green tea</label>
-                    <input type="checkbox" asp-for="tea" />
-                </div>
-                <div class="form-group mx-3">
-                    <label asp-for="fresa">Strawberries</label>
-                    <input type="checkbox" asp-for="fresa" />
-                </div>
-                <div class="form-group mx-3">
-                    <label asp-for="cafe">Coffee</label>
-                    <input type="checkbox" asp-for="cafe" />
-                </div>
+            <div class="form-group">
+                <label>Descuento</label>
+                <select class="form-control" asp-for="descuento">
+                    <option value="0">Sin descuento</option>
+                    <option value="1">Te</option>
+                    <option value="2">Fresa</option>
+                    <option value="3">Cafe</option>
+                </select>
             </div>
             <div class="text-center">
                 <button class="btn btn-primary" type="submit">

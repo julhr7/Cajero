@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Cajero.Models
 {
@@ -18,12 +16,8 @@ namespace Cajero.Models
         [Required(ErrorMessage = "Ingrese cantidad")]
         public int cantidad { get; set; }
 
-        //public decimal? subtotal { get { return precio * cantidad; } }
-
         public decimal subtotal { get; set; }
 
-        public bool tea { get; set; }
-        public bool fresa { get; set; }
-        public bool cafe { get; set; }
+        public CalcularTipo descuento { get; set; }
     }
 }
